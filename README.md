@@ -1,3 +1,3 @@
 # ConectaIFCE
 
-Repositório destinado ao desenvolvimento  do projeto **ConectaIFCE**, realizado para a disciplina de **Programação Web IIII**.
+Repositório destinado ao desenvolvimento  do projeto **ConectaIFCE**, realizado para a disciplina de **Programação Web II**.
