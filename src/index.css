@@ -47,10 +47,12 @@ body {
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-info: var(--info); /* bg-info text-info border-info */
+  --color-alert: var(--alert); /* bg-alert text-alert border-alert */
 }
 
 :root {
   --info: #00f;
+  --alert: #F00;
   --radius: 0.75rem;
 
   --background: oklch(0.985 0 89.88);
@@ -115,5 +117,15 @@ body {
 @layer components {
   .container-main {
     @apply max-w-7xl mx-auto px-4 lg:px-8;
+  }
+}
+
+@layer utilities {
+  .bg-soft-radial {
+    background-image: radial-gradient(
+      ellipse at top,
+      oklch(from var(--color-primary) l c h / 0.08),
+      transparent 60%
+    );
   }
 }
