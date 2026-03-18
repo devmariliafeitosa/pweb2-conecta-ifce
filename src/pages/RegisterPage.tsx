@@ -12,7 +12,13 @@ import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import { EyeIcon, EyeOffIcon, Loader2Icon } from 'lucide-react'
 import React, { useState } from 'react'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue }
+from '@/components/ui/select'
 
 function RegisterPage() {
   const [showPass, setShowPass] = useState<boolean>(false)
