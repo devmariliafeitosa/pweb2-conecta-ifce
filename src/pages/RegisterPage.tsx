@@ -31,7 +31,6 @@ function RegisterPage() {
 
   const handleSubmit = async (event: React.SubmitEvent) => {
     event.preventDefault()
-
     setIsLoading(true)
 
     const response = await fetch(
