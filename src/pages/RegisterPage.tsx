@@ -19,53 +19,42 @@ import {
   SelectTrigger,
   SelectValue }
 from '@/components/ui/select'
+import { registerSchema } from '@/schemas/register.schema'
+import { ZodError } from 'zod'
+
+
 
 function RegisterPage() {
   const [showPass, setShowPass] = useState<boolean>(false)
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
-
-
   const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [error, setError] = useState<string | null>(null)
+  //const [error, setError] = useState<string | null>(null)
 
   const handleSubmit = async (event: React.SubmitEvent) => {
     event.preventDefault()
     setIsLoading(true)
-
-    const response = await fetch(
-      'https://conectaifce-api.proflucasmendes.com.br/auth/login',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      },
-    )
-
-    const data = await response.json()
-    console.log(data)
-
-    if (response.status === 200) {
-      localStorage.setItem('token_access', data.token)
-      setEmail('')
-      setPassword('')
-      setError(null)
-
-    }
-
-    if (data.error) {
-      setError(data.error.message)
-      setTimeout(() => setError(null), 3000)
-    }
-
     setIsLoading(false)
-  }
 
+    const formData = new FormData(event.target)
+    const data = {
+      firstname: formData.get('firstname'),
+      lastname: formData.get('lastname'),
+      email: formData.get('email'),
+      password: formData.get('password'),
+      role: formData.get('role'),
+      campus: formData.get('campus')
+    }
+
+    try {
+    const validatedData = registerSchema.parse(data)
+    console.log('Dados validados:', validatedData)
+  } catch (error){
+    if(error instanceof ZodError) {
+      console.error('Erro de validação:', error.message)
+    }
+  }
+}
   return (
     <section className="flex-1 flex items-center justify-center py-20">
       <Card className="max-w-md border-border w-md">
@@ -73,7 +62,6 @@ function RegisterPage() {
           <div className="w-full flex justify-center mb-4">
             <Brand />
           </div>
-
           <CardTitle className="text-2xl font-bold text-foreground">
             Criar sua conta
           </CardTitle>
@@ -87,13 +75,13 @@ function RegisterPage() {
             <div className='flex items-center gap-4'>
               <div className="flex flex-col gap-2">
                   <Label
-                      htmlFor="name"
-                      className={`text-foreground ${error && 'text-destructive'}`}>
+                      htmlFor="firstname"
+                      className={`text-foreground `}>
                       Nome
                   </Label>
                   <Input
-                      id="name"
-                      name="name"
+                      id="firstname"
+                      name="firstname"
                       type="text"
                       placeholder="Digite seu nome"
                       required
@@ -102,13 +90,13 @@ function RegisterPage() {
               </div>
               <div className="flex flex-col gap-2">
                   <Label
-                      htmlFor="surname"
-                      className={`text-foreground ${error && 'text-destructive'}`}>
+                      htmlFor="lastname"
+                      className={`text-foreground`}>
                       Sobrenome
                   </Label>
                   <Input
-                      id="surname"
-                      name="surname"
+                      id="lastname"
+                      name="lastname"
                       type="text"
                       placeholder="Seu sobrenome"
                       required
@@ -119,7 +107,7 @@ function RegisterPage() {
             <div className="flex flex-col gap-2">
                 <Label
                   htmlFor="email"
-                  className={`text-foreground ${error && 'text-destructive'}`}>
+                  className={`text-foreground`}>
                   E-mail institucional
                 </Label>
                 <Input
@@ -170,7 +158,7 @@ function RegisterPage() {
               <div className="flex items-center justify-between">
                 <Label
                   htmlFor="password"
-                  className={`text-foreground ${error && 'text-destructive'}`}   >
+                  className={`text-foreground`}   >
                   Senha
                 </Label>
               </div>
@@ -214,10 +202,6 @@ function RegisterPage() {
                 'Criar conta'
               )}
             </Button>
-
-            {error && (
-              <p className="text-destructive text-sm text-center">{error}</p>
-            )}
           </form>
         </CardContent>
 
