@@ -1,5 +1,5 @@
-import Brand from './brand'
-import { Link } from 'react-router'
+import Brand from "../../shared/components/brand";
+import { Link } from "react-router";
 
 function Footer() {
   return (
@@ -22,13 +22,16 @@ function Footer() {
             </h3>
             <ul className="flex flex-col gap-2">
               <li>
-                <Link to="/feed" className="text-muted-foreground text-sm font-medium hover:text-primary">
+                <Link
+                  to="/feed"
+                  className="text-muted-foreground text-sm font-medium hover:text-primary"
+                >
                   Feed Acadêmico
                 </Link>
               </li>
               <li>
                 <Link
-                to="/groups"
+                  to="/groups"
                   className="text-muted-foreground text-sm font-medium hover:text-primary"
                 >
                   Grupos de Estudo
@@ -110,7 +113,7 @@ function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;

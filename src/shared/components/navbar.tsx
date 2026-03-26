@@ -1,6 +1,6 @@
-import Brand from "@/components/shared/brand"
-import { Button } from "@/components/ui/button"
-import { Link } from "react-router"
+import Brand from "@/shared/components/brand";
+import { Button } from "@/shared/ui/button";
+import { Link } from "react-router";
 
 function Navbar() {
   return (
@@ -41,7 +41,7 @@ function Navbar() {
         </div>
       </nav>
     </header>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

@@ -1,6 +1,6 @@
-import { Button } from '@/components/ui/button'
-import { ArrowRight } from 'lucide-react'
-import { Link } from 'react-router'
+import { Button } from "@/shared/ui/button";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router";
 
 function CtaSection() {
   return (
@@ -24,12 +24,14 @@ function CtaSection() {
             </Link>
           </Button>
           <Button variant="ghost" size="lg" asChild>
-            <Link to="/login" className='w-40 h-12'>Já tem conta?</Link>
+            <Link to="/login" className="w-40 h-12">
+              Já tem conta?
+            </Link>
           </Button>
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default CtaSection
+export default CtaSection;

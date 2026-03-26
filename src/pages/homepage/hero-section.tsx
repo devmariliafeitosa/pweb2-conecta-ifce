@@ -1,6 +1,6 @@
-import { Button } from '@/components/ui/button'
-import { ArrowRight, Sparkles } from 'lucide-react'
-import { Link } from 'react-router'
+import { Button } from "@/shared/ui/button";
+import { ArrowRight, Sparkles } from "lucide-react";
+import { Link } from "react-router";
 
 function HeroSection() {
   return (
@@ -14,7 +14,7 @@ function HeroSection() {
         </div>
 
         <h1 className="mt-6 text-6xl text-balance font-bold text-foreground tracking-tight">
-          Conecte-se, colabore e{' '}
+          Conecte-se, colabore e{" "}
           <span className="text-primary">cresça junto</span> com a comunidade
           IFCE
         </h1>
@@ -25,35 +25,35 @@ function HeroSection() {
         </p>
 
         <Button className="mt-10" size="lg" asChild>
-          <Link to="/register" className='flex gap-2 items-center w-60 h-12'>
-            <span className='uppercase tracking-wider'>Participar agora</span>
-            <ArrowRight className='size-4' />
+          <Link to="/register" className="flex gap-2 items-center w-60 h-12">
+            <span className="uppercase tracking-wider">Participar agora</span>
+            <ArrowRight className="size-4" />
           </Link>
         </Button>
 
-        <div className='mt-16 flex items-center gap-8 text-sm text-muted-foreground'>
-          <div className='flex flex-col gap-1'>
-            <span className='text-foreground font-bold text-2xl'>2.500+</span>
+        <div className="mt-16 flex items-center gap-8 text-sm text-muted-foreground">
+          <div className="flex flex-col gap-1">
+            <span className="text-foreground font-bold text-2xl">2.500+</span>
             <span>Estudantes</span>
           </div>
 
-          <div className='h-8 w-px bg-border'></div>
+          <div className="h-8 w-px bg-border"></div>
 
-          <div className='flex flex-col gap-1'>
-            <span className='text-foreground font-bold text-2xl'>32</span>
+          <div className="flex flex-col gap-1">
+            <span className="text-foreground font-bold text-2xl">32</span>
             <span>Campi</span>
           </div>
 
-          <div className='h-8 w-px bg-border'></div>
+          <div className="h-8 w-px bg-border"></div>
 
-          <div className='flex flex-col gap-1'>
-            <span className='text-foreground font-bold text-2xl'>50+</span>
+          <div className="flex flex-col gap-1">
+            <span className="text-foreground font-bold text-2xl">50+</span>
             <span>Grupos</span>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default HeroSection
+export default HeroSection;
