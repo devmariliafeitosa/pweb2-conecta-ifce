@@ -1,4 +1,4 @@
-//import { useFormRegister } from "@/features/auth/components/useFormRegister"
+import { useFormRegister } from "@/features/auth/components/useFormRegister"
 import { Button } from "@/shared/ui/button"
 import { Input } from "@/shared/ui/input"
 import { Label } from "@/shared/ui/label"
@@ -102,7 +102,7 @@ function FormRegister() {
               </SelectTrigger>
 
               <SelectContent>
-                <SelectItem value="STIUDENT">Estudante</SelectItem>
+                <SelectItem value="STUDENT">Estudante</SelectItem>
                 <SelectItem value="PROFESSOR">Docente</SelectItem>
                 <SelectItem value="TECHNICIAN">Técnico(a)</SelectItem>
               </SelectContent>
@@ -145,7 +145,7 @@ function FormRegister() {
         )}
       </div>
 
-      {useForm.watch('role') === 'STUDENT' && (
+      {useForm.watch('role') === 'aluno' && (
         <div className="flex flex-col gap-2">
           <Label htmlFor="course" className="text-foreground">
             Curso

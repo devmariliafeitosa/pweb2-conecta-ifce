@@ -1,8 +1,8 @@
 import {z} from 'zod'
 
 export const registerSchema = z.object({
-  firstname: z.string().trim().min(2, 'O nome deve ter pelo menos 2 caracteres').max(100),
-  lastname: z.string().trim().min(2, 'O sobrenome deve ter pelo menos 2 caracteres').max(100),
+  firstName: z.string().trim().min(2, 'O nome deve ter pelo menos 2 caracteres').max(100),
+  lastName: z.string().trim().min(2, 'O sobrenome deve ter pelo menos 2 caracteres').max(100),
   handle: z.string().trim().min(3, 'O nome de usuário deve ter pelo menos 3 caracteres').max(50)
     .regex(/^[a-zA-Z0-9_]+$/, 'O nome de usuário só pode conter letras, números e underscores') ,
   email: z.email('Digite um email válido') .endsWith('@ifce.edu.br', 'O email deve ser institucional'),
