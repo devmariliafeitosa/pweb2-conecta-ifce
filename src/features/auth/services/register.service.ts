@@ -3,7 +3,7 @@ import { http } from '@/infra/http/http-client'
 import type {
   UserRequestDTO,
   UserResponseDTO,
-} from '@/features/auth/types/dto/authDTO'
+} from '@/features/auth/types/dto/AuthDTO'
 
 type CampusType = {
   id: string

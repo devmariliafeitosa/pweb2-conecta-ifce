@@ -1,42 +1,42 @@
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useEffect, useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import {
   registerSchema,
   type RegisterFormData,
-} from '../schemas/register.schema'
-import { http } from '@/infra/http/http-client'
-import { setAccessToken } from '../storage/auth.storage'
+} from "../schemas/register.schema";
+import { http } from "@/infra/http/http-client";
+import { setAccessToken } from "../storage/authUser.storage";
 
 export function useFormRegister() {
-  const [showPass, setShowPass] = useState<boolean>(false)
-  const [registerError, setRegisterError] = useState<string | null>(null)
+  const [showPass, setShowPass] = useState<boolean>(false);
+  const [registerError, setRegisterError] = useState<string | null>(null);
   const [campuses, setCampuses] = useState<
     Array<{
-      id: string
-      name: string
+      id: string;
+      name: string;
     }>
-  >([])
-  const navigate = useNavigate()
+  >([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchCampuses() {
       try {
         const campuses = await http.get<
           Array<{
-            id: string
-            name: string
+            id: string;
+            name: string;
           }>
-        >('campuses')
-        setCampuses(campuses)
+        >("campuses");
+        setCampuses(campuses);
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
     }
 
-    fetchCampuses()
-  }, [])
+    fetchCampuses();
+  }, []);
 
   const {
     register,
@@ -46,24 +46,24 @@ export function useFormRegister() {
     watch,
   } = useForm<RegisterFormData>({
     resolver: zodResolver(registerSchema),
-    mode: 'onBlur',
-  })
+    mode: "onBlur",
+  });
 
   const onSubmit = async (data: RegisterFormData) => {
-    const { course, ...reset } = data
-    const payload = data.role === 'aluno' ? data : reset
+    const { course, ...reset } = data;
+    const payload = data.role === "aluno" ? data : reset;
 
     try {
       const responseData = await http.post<{ token: string; user: any }>(
-        'auth/register',
+        "auth/register",
         payload,
-      )
-      setAccessToken(responseData.token)
-      navigate('/feed')
+      );
+      setAccessToken(responseData.token);
+      navigate("/feed");
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-  }
+  };
 
   return {
     state: {
@@ -82,5 +82,5 @@ export function useFormRegister() {
       errors,
       watch,
     },
-  }
+  };
 }

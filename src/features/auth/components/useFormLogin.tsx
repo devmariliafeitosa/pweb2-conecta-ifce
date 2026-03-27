@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router'
 import { ApiError } from '@/infra/http/api-error'
 import { login } from '@/features/auth/services/login.service'
-//import { useAuth } from '@/features/auth/contexts/AuthContext'
+import { useAuth } from '@/features/auth/contexts/AuthContext'
 
 export function useFormLogin() {
   const [showPass, setShowPass] = useState<boolean>(false)

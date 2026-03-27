@@ -3,7 +3,7 @@ import {
   clearAccessToken,
   setAccessToken,
 } from '@/features/auth/storage/token.storage'
-import type { UserResponseDTO } from '@/features/auth/types/dto/authDTO'
+import type { UserResponseDTO } from '@/features/auth/types/dto/AuthDTO'
 
 export async function login(
   email: string,
