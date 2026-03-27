@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router'
 import { ApiError } from '@/infra/http/api-error'
-//import { login } from '@/features/auth/services/'
+import { login } from '@/features/auth/services/login.service'
 //import { useAuth } from '@/features/auth/contexts/AuthContext'
 
 export function useFormLogin() {
@@ -30,7 +30,7 @@ export function useFormLogin() {
       navigate('/feed')
     } catch (error) {
       if (error instanceof ApiError)
-      setAuthError(error instanceof Error ? error.message: 'Error desconhecido')
+      setAuthError(error.message)
     }
   }
 

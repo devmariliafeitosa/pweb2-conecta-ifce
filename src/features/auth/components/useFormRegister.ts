@@ -11,6 +11,7 @@ import { setAccessToken } from '../storage/auth.storage'
 
 export function useFormRegister() {
   const [showPass, setShowPass] = useState<boolean>(false)
+  const [registerError, setRegisterError] = useState<string | null>(null)
   const [campuses, setCampuses] = useState<
     Array<{
       id: string
@@ -68,6 +69,7 @@ export function useFormRegister() {
     state: {
       showPass,
       setShowPass,
+      registerError,
       campuses,
     },
     onSubmit,
