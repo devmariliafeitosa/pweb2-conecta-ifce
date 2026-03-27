@@ -1,37 +1,37 @@
 import {
   Accordion,
-  AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/shared/ui/accordion";
+  AccordionContent,
+} from '@/shared/ui/accordion'
 
 const faq = [
   {
-    question: "Quem pode participar do ConectaIFCE?",
+    question: 'Quem pode participar do ConectaIFCE?',
     answer:
-      "Todos os membros da comunidade IFCE: alunos, professores, técnicos administrativos e egressos. Basta ter um e-mail institucional válido para criar sua conta.",
+      'Todos os membros da comunidade IFCE: alunos, professores, técnicos administrativos e egressos. Basta ter um e-mail institucional válido para criar sua conta.',
   },
   {
-    question: "Como funciona a formação de grupos de estudo?",
+    question: 'Como funciona a formação de grupos de estudo?',
     answer:
-      "Você pode criar um grupo de estudo sobre qualquer tema, convidar membros e compartilhar materiais. Os grupos possuem feed proprio, area de recursos e lista de membros.",
+      'Você pode criar um grupo de estudo sobre qualquer tema, convidar membros e compartilhar materiais. Os grupos possuem feed proprio, area de recursos e lista de membros.',
   },
   {
-    question: "Posso divulgar meu projeto de pesquisa?",
+    question: 'Posso divulgar meu projeto de pesquisa?',
     answer:
-      "Sim! A plataforma possui uma area dedicada para publicacao de projetos de pesquisa, extensão e inovação. Você pode detalhar seu projeto, buscar colaboradores e compartilhar resultados.",
+      'Sim! A plataforma possui uma area dedicada para publicacao de projetos de pesquisa, extensão e inovação. Você pode detalhar seu projeto, buscar colaboradores e compartilhar resultados.',
   },
   {
-    question: "A plataforma esta disponível em dispositivos móveis?",
+    question: 'A plataforma esta disponível em dispositivos móveis?',
     answer:
-      "Sim, o ConectaIFCE é totalmente responsivo e funciona perfeitamente em smartphones, tablets e desktops.",
+      'Sim, o ConectaIFCE é totalmente responsivo e funciona perfeitamente em smartphones, tablets e desktops.',
   },
   {
-    question: "Como funcionam as badges e conquistas?",
+    question: 'Como funcionam as badges e conquistas?',
     answer:
-      "As badges sao reconhecimentos visuais do seu papel e conquistas na instituição. Existem badges para aluno, docente, egresso, pesquisador, entre outros. Conquistas são desbloqueadas conforme você participa da comunidade.",
+      'As badges sao reconhecimentos visuais do seu papel e conquistas na instituição. Existem badges para aluno, docente, egresso, pesquisador, entre outros. Conquistas são desbloqueadas conforme você participa da comunidade.',
   },
-];
+]
 
 function FaqSection() {
   return (
@@ -52,6 +52,7 @@ function FaqSection() {
               <AccordionTrigger className="text-base font-medium text-foreground hover:text-primary">
                 {item.question}
               </AccordionTrigger>
+
               <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
                 {item.answer}
               </AccordionContent>
@@ -60,7 +61,7 @@ function FaqSection() {
         </Accordion>
       </div>
     </section>
-  );
+  )
 }
 
-export default FaqSection;
+export default FaqSection

@@ -1,20 +1,23 @@
-import { useEffect } from 'react'
-import { useLocation } from 'react-router'
+import { useEffect } from "react"
+import { useLocation } from "react-router"
 
 export default function useScroll() {
-const { hash, key } = useLocation()
+  const { hash, key } = useLocation()
 
-useEffect(() => {
-  if (hash) {
-    const id = hash.replace('#', '')
+  useEffect(() => {
 
-    const element = document.getElementById(id)
-    element?.scrollIntoView()
-   return
-  }
-  window.requestAnimationFrame(() => {
-    window.scrollTo({top: 0})
-  })
-}, [hash, key])
+    if (hash) {
+      const id = hash.replace('#', '')
 
+      window.requestAnimationFrame(() => {
+        const element = document.getElementById(id)
+        element?.scrollIntoView()
+      })
+      return
+    }
+
+    window.requestAnimationFrame(() =>  {
+      window.scrollTo( { top: 0})
+    })
+  }, [hash, key])
 }

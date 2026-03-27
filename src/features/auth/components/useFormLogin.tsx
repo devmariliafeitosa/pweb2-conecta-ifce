@@ -24,15 +24,21 @@ export function useFormLogin() {
   })
 
   const onSubmit = async (data: LoginFormData) => {
-    try {
-      const responseData = await login(data.email, data.password)
-      setAuthUser(responseData.user)
-      navigate('/feed')
-    } catch (error) {
-      if (error instanceof ApiError)
+  try {
+    const responseData = await login(data.email, data.password)
+
+    console.log('LOGIN RESPONSE:', responseData)
+
+    setAuthUser(responseData.user)
+
+    console.log('USER SALVO NO CONTEXT')
+
+    navigate('/feed')
+  } catch (error) {
+    if (error instanceof ApiError)
       setAuthError(error.message)
-    }
   }
+}
 
   return {
     state: {

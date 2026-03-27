@@ -6,7 +6,6 @@ import {
 import type { AuthUser } from '@/features/auth/types/dto/AuthDTO'
 import { createContext, useContext, useState, type ReactNode } from 'react'
 
-
 // context type
 type AuthContextType = {
   isAuthenticated: boolean
@@ -35,7 +34,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <AuthContext.Provider
+    <AuthContext
       value={{
         isAuthenticated: authUser !== null,
         authUser,
@@ -44,7 +43,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }}
     >
       {children}
-    </AuthContext.Provider>
+    </AuthContext>
   )
 }
 

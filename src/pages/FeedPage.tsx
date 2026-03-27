@@ -1,12 +1,13 @@
-import { useAuth } from '@/features/auth/contexts/AuthContext'
-import React from 'react'
+import RecommendationsCard from "@/features/follow/components/recommendations-card"
+import ProfileCard from "@/features/users/components/profile-card"
 
 function FeedPage() {
-  const {authUser} = useAuth()
+
   return (
-   <section className="flex=1 flex justify-content">
-    <h1>@{authUser?.handle}</h1>
-   </section>
+    <section className="flex-1 flex justify-center items-center">
+      <ProfileCard />
+      <RecommendationsCard />
+    </section>
   )
 }
 
