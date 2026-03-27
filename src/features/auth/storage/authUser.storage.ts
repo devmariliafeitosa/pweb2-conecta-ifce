@@ -12,11 +12,8 @@ function getStoredUser() {
   return JSON.parse(raw) as AuthUser
 }
 
-function celarStoredUser() {
+function clearStoredUser() {
   localStorage.removeItem(KEY_AUTH_USER)
 }
 
-export {
-  setStoredUser,
-  getStoredUser,
-  celarStoredUser }
+export { setStoredUser, getStoredUser, clearStoredUser }

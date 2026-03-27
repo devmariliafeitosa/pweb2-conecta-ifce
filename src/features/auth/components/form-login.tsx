@@ -8,11 +8,7 @@ function FormLogin() {
   const { state, onSubmit, useForm } = useFormLogin()
 
   return (
-    <form
-      className="flex flex-col gap-4"
-      onSubmit={useForm.handleSubmit(onSubmit)}
-    >
-
+    <form className="flex flex-col gap-4">
             <div className="flex flex-col gap-2">
               <Label htmlFor="email" className="text-foreground">
                 E-mail Institucional

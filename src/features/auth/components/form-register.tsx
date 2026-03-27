@@ -58,7 +58,7 @@ function FormRegister() {
           Nome de Usuário
         </Label>
         <Input
-          id="firstName"
+          id="handle"
           type="text"
           placeholder="Seu nome de usuário"
           required
@@ -102,9 +102,9 @@ function FormRegister() {
               </SelectTrigger>
 
               <SelectContent>
-                <SelectItem value="STUDENT">Estudante</SelectItem>
+                <SelectItem value="ALUNO">Estudante</SelectItem>
                 <SelectItem value="PROFESSOR">Docente</SelectItem>
-                <SelectItem value="TECHNICIAN">Técnico(a)</SelectItem>
+                <SelectItem value="TECNICO">Técnico(a)</SelectItem>
               </SelectContent>
             </Select>
           )}
@@ -145,7 +145,7 @@ function FormRegister() {
         )}
       </div>
 
-      {useForm.watch('role') === 'aluno' && (
+      {useForm.watch('role') === 'ALUNO' && (
         <div className="flex flex-col gap-2">
           <Label htmlFor="course" className="text-foreground">
             Curso

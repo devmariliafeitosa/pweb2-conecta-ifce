@@ -1,40 +1,41 @@
 import {
-  celarStoredUser,
+  clearStoredUser,
   getStoredUser,
   setStoredUser,
-} from "@/features/auth/storage/authUser.storage";
-import type { AuthUser } from "@/features/auth/types/dto/AuthDTO";
-import { createContext, useContext, useState, type ReactNode } from "react";
+} from '@/features/auth/storage/authUser.storage'
+import type { AuthUser } from '@/features/auth/types/dto/AuthDTO'
+import { createContext, useContext, useState, type ReactNode } from 'react'
+
 
 // context type
 type AuthContextType = {
-  isAuthenticated: boolean;
-  authUser: AuthUser | null;
-  setAuthUser: (user: AuthUser) => void;
-  clearAuthUser: () => void;
-};
+  isAuthenticated: boolean
+  authUser: AuthUser | null
+  setAuthUser: (user: AuthUser) => void
+  clearAuthUser: () => void
+}
 
 // create context
-const AuthContext = createContext<AuthContextType | null>(null);
+const AuthContext = createContext<AuthContextType | null>(null)
 
 // context provider
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [authUser, setAuthUser] = useState<AuthUser | null>(() =>
     getStoredUser(),
-  );
+  )
 
   function setUser(user: AuthUser) {
-    setStoredUser(user);
-    setAuthUser(user);
+    setStoredUser(user)
+    setAuthUser(user)
   }
 
   function clearUser() {
-    celarStoredUser();
-    setAuthUser(null);
+    clearStoredUser()
+    setAuthUser(null)
   }
 
   return (
-    <AuthContext
+    <AuthContext.Provider
       value={{
         isAuthenticated: authUser !== null,
         authUser,
@@ -43,18 +44,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }}
     >
       {children}
-    </AuthContext>
-  );
+    </AuthContext.Provider>
+  )
 }
 
 // custom hook
 export function useAuth(): AuthContextType {
-  const context = useContext(AuthContext);
+  const context = useContext(AuthContext)
   if (!context) {
     throw Error(
-      "O contexto de autenticação não pode ser acessado fora do AuthProvider",
-    );
+      'O contexto de autenticação não pode ser acessado fora do AuthProvider',
+    )
   }
 
-  return context;
+  return context
 }

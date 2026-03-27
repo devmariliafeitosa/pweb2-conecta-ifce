@@ -3,10 +3,12 @@ import HomePage from "@/pages/homepage/HomePage";
 import LoginPage from "@/pages/LoginPage";
 import RegisterPage from "@/pages/RegisterPage";
 import { createBrowserRouter } from "react-router";
+import PublicLayout from "@/layouts/PublicLayout";
+import AppLayout from "@/layouts/AppLayout";
 
 export const router = createBrowserRouter([
   {
-   // Component: PublicLayout,
+   Component: PublicLayout,
     children: [
       {
         path: '/',
@@ -24,7 +26,7 @@ export const router = createBrowserRouter([
     ]
   },
   {
-    //Component: AppLayout,
+  Component: AppLayout,
     children: [
       {
         path: '/feed',

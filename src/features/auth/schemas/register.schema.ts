@@ -11,7 +11,7 @@ export const registerSchema = z.object({
     .regex(/[a-z]/, 'A senha deve conter pelo menos uma letra minúscula')
     .regex(/\d/, 'A senha deve conter pelo menos um número')
     .regex(/[@$!%*?&]/, 'A senha deve conter pelo menos um caractere especial'),
-  role: z.enum(['aluno', 'servidor', 'técnico']),
+  role: z.enum(['ALUNO', 'PROFESSOR', 'TECNICO']),
   campus: z.string().nonempty(),
   course: z.string().trim().min(3, 'O curso deve ter pelo menos 3 caracteres').max(100).optional(),
 })
