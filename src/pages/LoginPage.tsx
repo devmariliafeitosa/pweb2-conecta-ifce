@@ -1,4 +1,4 @@
-//import FormLogin from '@/features/auth/components/form-login'
+import FormLogin from '@/features/auth/components/form-login'
 import Brand from '@/shared/components/brand'
 import {
   Card,
@@ -28,9 +28,9 @@ function LoginPage() {
           </CardDescription>
         </CardHeader>
 
-        {/* <CardContent>
+        <CardContent>
           <FormLogin />
-        </CardContent> */}
+        </CardContent>
 
         <CardFooter className="border-t border-border">
           <p className="text-sm text-muted-foreground text-center w-full">
