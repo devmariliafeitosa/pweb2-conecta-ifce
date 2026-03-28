@@ -1,17 +1,17 @@
-import Brand from "../../shared/components/brand";
-import { Link } from "react-router";
+import Brand from './brand'
+import { Link } from 'react-router'
 
 function Footer() {
   return (
     <footer className="border-t border-border bg-card">
       <div className="container-main py-12">
-        <div className="grid grid-cols-4">
+        <div className="grid grid-cols-4 gap-8">
           <div>
             <Link to="/">
               <Brand />
             </Link>
             <p className="mt-3 text-sm text-muted-foreground text-balance leading-relaxed">
-              Rede social acadêmica do IFCE. Conecatando a comunidade para
+              Rede Social acadêmica do IFCE. Conectando a comunidade para
               crescer juntos.
             </p>
           </div>
@@ -22,28 +22,28 @@ function Footer() {
             </h3>
             <ul className="flex flex-col gap-2">
               <li>
-                <Link
-                  to="/feed"
+                <a
+                  href="/feed"
                   className="text-muted-foreground text-sm font-medium hover:text-primary"
                 >
                   Feed Acadêmico
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  to="/groups"
+                <a
+                  href="/groups"
                   className="text-muted-foreground text-sm font-medium hover:text-primary"
                 >
-                  Grupos de Estudo
-                </Link>
+                  Grupos de Estudos
+                </a>
               </li>
               <li>
-                <Link
-                  to="/profile"
+                <a
+                  href="/profile"
                   className="text-muted-foreground text-sm font-medium hover:text-primary"
                 >
                   Perfil
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -54,28 +54,28 @@ function Footer() {
             </h3>
             <ul className="flex flex-col gap-2">
               <li>
-                <Link
-                  to="https://portal.ifce.edu.br"
+                <a
+                  href="https://portal.ifce.edu.br"
                   className="text-muted-foreground text-sm font-medium hover:text-primary"
                 >
                   IFCE
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  to="/about"
+                <a
+                  href="/about"
                   className="text-muted-foreground text-sm font-medium hover:text-primary"
                 >
                   Sobre
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  to="/contact"
+                <a
+                  href="/contact"
                   className="text-muted-foreground text-sm font-medium hover:text-primary"
                 >
                   Contato
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -86,20 +86,20 @@ function Footer() {
             </h3>
             <ul className="flex flex-col gap-2">
               <li>
-                <Link
-                  to="#"
+                <a
+                  href="#"
                   className="text-muted-foreground text-sm font-medium hover:text-primary"
                 >
                   Termos de Uso
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  to="#"
+                <a
+                  href="#"
                   className="text-muted-foreground text-sm font-medium hover:text-primary"
                 >
                   Privacidade
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -113,7 +113,7 @@ function Footer() {
         </div>
       </div>
     </footer>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

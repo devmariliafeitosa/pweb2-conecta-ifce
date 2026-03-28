@@ -58,7 +58,7 @@ function FormRegister() {
           Nome de Usuário
         </Label>
         <Input
-          id="handle"
+          id="firstName"
           type="text"
           placeholder="Seu nome de usuário"
           required
@@ -102,9 +102,9 @@ function FormRegister() {
               </SelectTrigger>
 
               <SelectContent>
-                <SelectItem value="ALUNO">Estudante</SelectItem>
+                <SelectItem value="STUDENT">Estudante</SelectItem>
                 <SelectItem value="PROFESSOR">Docente</SelectItem>
-                <SelectItem value="TECNICO">Técnico(a)</SelectItem>
+                <SelectItem value="TECHNICIAN">Técnico(a)</SelectItem>
               </SelectContent>
             </Select>
           )}

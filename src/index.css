@@ -1,7 +1,9 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
-/* @import './styles/animations.css'; */
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
 
 body {
   font-family: 'Inter', Arial, Helvetica, sans-serif;
